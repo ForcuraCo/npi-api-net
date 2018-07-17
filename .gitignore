@@ -1,0 +1,12 @@
+bin
+obj
+*.user
+*.suo
+*.nupkg
+*.orig
+*.dll
+Output
+TestResults
+packages
+.vscode
+.vs
