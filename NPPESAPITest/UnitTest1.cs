@@ -11,7 +11,7 @@ namespace NPPESAPITest
         [TestMethod]
         public async Task TestMethod1()
         {
-            var result = await NPPESApiClient.Request(new NPPESRequest
+            var result = await NPPESApiClient.Search(new NPPESRequest
             {
                 Number = "1215226147"
             });

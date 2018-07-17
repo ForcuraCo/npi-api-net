@@ -2,8 +2,19 @@
 {
     public enum AddressType
     {
-        Domestic,
-        Foreign,
-        Military
+        /// <summary>
+        /// Domestic address.
+        /// </summary>
+        DOM,
+
+        /// <summary>
+        /// Foreign address.
+        /// </summary>
+        FGN,
+
+        /// <summary>
+        /// Military address.
+        /// </summary>
+        MIL
     }
 }

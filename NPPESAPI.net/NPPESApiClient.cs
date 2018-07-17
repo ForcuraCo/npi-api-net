@@ -43,7 +43,13 @@ namespace Forcura.NPPES
             });
         }
 
-        public static async Task<NPPESResponse> Request(NPPESRequest request, CancellationToken cancellationToken = default)
+        /// <summary>
+        /// Searches the NPPES NPI directory for an individual or organization based on search criteria.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<NPPESResponse> Search(NPPESRequest request, CancellationToken cancellationToken = default)
         {
             using (var responseMessage = await DefaultClient.GetAsync(request.ToQuery(), cancellationToken: cancellationToken))
             {
