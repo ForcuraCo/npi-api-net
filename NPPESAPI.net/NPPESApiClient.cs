@@ -13,8 +13,9 @@ namespace Forcura.NPPES
     public static class NPPESApiClient
     {
         private static readonly Lazy<HttpClient> defaultClient;
-        private const string BASE_ADDRESS_PATH = "https://npiregistry.cms.hhs.gov/api/resultsDemo2/";
         private static readonly JsonSerializer serializer;
+        private const string BASE_ADDRESS_PATH = "https://npiregistry.cms.hhs.gov/api/resultsDemo2/";
+        private const int bufferSize = 8192;
 
         private static HttpClient DefaultClient => defaultClient.Value;
 
@@ -42,7 +43,7 @@ namespace Forcura.NPPES
             });
         }
 
-        public static async Task<NPPESResponse> Request(NPPESRequest request, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<NPPESResponse> Request(NPPESRequest request, CancellationToken cancellationToken = default)
         {
             using (var responseMessage = await DefaultClient.GetAsync(request.ToQuery(), cancellationToken: cancellationToken))
             {
@@ -56,7 +57,7 @@ namespace Forcura.NPPES
 
         private static T StreamToType<T>(Stream stream)
         {
-            using (var streamReader = new StreamReader(stream, Encoding.UTF8, true, 8192, true))
+            using (var streamReader = new StreamReader(stream, Encoding.UTF8, true, bufferSize, true))
             using (var jsonReader = new JsonTextReader(streamReader))
             {
                 return serializer.Deserialize<T>(jsonReader);
