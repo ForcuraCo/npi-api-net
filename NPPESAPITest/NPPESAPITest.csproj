@@ -57,7 +57,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NPPESAPI.net\NPPESAPI.net.csproj">
       <Project>{70e67fb5-0c1c-4bfa-b813-395555b3a960}</Project>
-      <Name>nppes-api-net</Name>
+      <Name>NPPESAPI.net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
