@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard1.5;net451;net45</TargetFrameworks>
+    <AssemblyName>Forcura.NPPESAPI</AssemblyName>
+    <RootNamespace>Forcura.NPPES</RootNamespace>
+    <Description>Client library for interacting with the National Plan &amp; Provider Enumeration System (NPPES) API.  https://nppes.cms.hhs.gov/</Description>
+    <Copyright>2018 Forcura</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>NPPES NPI Healthcare .net</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.0|AnyCPU'">
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup Condition="$(TargetFramework) == 'net45' or $(TargetFramework) == 'net451'">
+    <PackageReference Include="System.Net.Http" Version="4.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>
