@@ -51,10 +51,10 @@ namespace Forcura.NPPES
         /// <returns></returns>
         public static async Task<NPPESResponse> Search(NPPESRequest request, CancellationToken cancellationToken = default)
         {
-            using (var responseMessage = await DefaultClient.GetAsync(request.ToQuery(), cancellationToken: cancellationToken))
+            using (var responseMessage = await DefaultClient.GetAsync(request.ToQuery(), cancellationToken: cancellationToken).ConfigureAwait(false))
             {
                 if (responseMessage.IsSuccessStatusCode)
-                    using (var stream = await responseMessage.Content.ReadAsStreamAsync())
+                    using (var stream = await responseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false))
                         return StreamToType<NPPESResponse>(stream);
 
                 return null;
