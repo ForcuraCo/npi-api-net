@@ -5,7 +5,7 @@
     <AssemblyName>Forcura.NPPESAPI</AssemblyName>
     <RootNamespace>Forcura.NPPES</RootNamespace>
     <Description>Client library for interacting with the National Plan &amp; Provider Enumeration System (NPPES) API.  https://nppes.cms.hhs.gov/</Description>
-    <Copyright>2018 Forcura</Copyright>
+    <Copyright>©2018 Forcura</Copyright>
     <RepositoryType>git</RepositoryType>
     <PackageTags>NPPES NPI Healthcare .net</PackageTags>
     <LangVersion>latest</LangVersion>
@@ -16,6 +16,7 @@
     <Product>NPPES NPI API</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/ForcuraCo/npi-api-net</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net45' or $(TargetFramework) == 'net451'">
