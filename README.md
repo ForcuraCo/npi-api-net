@@ -8,22 +8,22 @@ For more information visit the [NPI registry](https://npiregistry.cms.hhs.gov/)
 
 Requests are as simple as providing an NPI number to lookup:
 
-```
+```cs
 var results = await NPPESApiClient.SearchAsync("8942315671");
 ```
 
 OR
 
-```
-var results = await NPPESApiClient.Search(new NPPESRequest
+```cs
+var results = await NPPESApiClient.SearchAsync(new NPPESRequest
 {
    Number = "5631047582"
 });
 ```
 
 For more complicated queries, use the other provided fields on the `NPPESRequest` object:
-```
-var results = await NPPESApiClient.Search(new NPPESRequest
+```cs
+var results = await NPPESApiClient.SearchAsync(new NPPESRequest
 {
    FirstName = "John",
    LastName = "Doe"
