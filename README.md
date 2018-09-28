@@ -1,5 +1,7 @@
 ## NPPES API for .NET
 
+[![NuGet](https://img.shields.io/nuget/v/Forcura.NPPESAPI.svg?style=flat-square&label=nuget)](https://www.nuget.org/packages/Forcura.NPPESAPI/)
+
 This is a .NET wrapper for interacting with the CMS **National Plan and Provider Enumeration System** [NPPES](https://nppes.cms.hhs.gov/NPPES/Welcome.do) **National Provider Identifier** (NPI) lookup system
 
 For more information visit the [NPI registry](https://npiregistry.cms.hhs.gov/)
