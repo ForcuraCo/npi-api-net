@@ -5,6 +5,9 @@ using System.Net;
 
 namespace Forcura.NPPES
 {
+    /// <summary>
+    /// Represents a collection of parameters to be provided to the NPPES NPI API.
+    /// </summary>
     public class NPPESRequest
     {
         /// <summary>
@@ -18,7 +21,7 @@ namespace Forcura.NPPES
         public NPPESType? EnumerationType { get; set; }
 
         /// <summary>
-        /// Search for providers by their taxonomy by entering the taxonomy description.
+        /// Search for providers by their taxonomy by entering the taxonomy description.  This can be an exact description or specialty or wildcard after 2 characters.
         /// </summary>
         public string TaxonomyDescription { get; set; }
 

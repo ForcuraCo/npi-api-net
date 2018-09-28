@@ -10,14 +10,18 @@ using System.Threading.Tasks;
 
 namespace Forcura.NPPES
 {
+    /// <summary>
+    /// NPPES Api for making requests to the NPPES NPI registry.
+    /// </summary>
     public static class NPPESApiClient
     {
         private static readonly Lazy<HttpClient> defaultClient;
-        private static readonly JsonSerializer serializer;
+        private static readonly Lazy<JsonSerializer> serializer;
         private const string BASE_ADDRESS_PATH = "https://npiregistry.cms.hhs.gov/api/resultsDemo2/";
         private const int bufferSize = 8192;
 
         private static HttpClient DefaultClient => defaultClient.Value;
+        private static JsonSerializer Serializer => serializer.Value;
 
         static NPPESApiClient()
         {
@@ -26,7 +30,7 @@ namespace Forcura.NPPES
                 BaseAddress = new Uri(BASE_ADDRESS_PATH)
             });
 
-            serializer = JsonSerializer.Create(new JsonSerializerSettings
+            serializer = new Lazy<JsonSerializer>(() => JsonSerializer.Create(new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore,
                 MissingMemberHandling = MissingMemberHandling.Ignore,
@@ -40,7 +44,23 @@ namespace Forcura.NPPES
                     new CustomDateTimeConverter()
                 },
                 ContractResolver = new NPPESContractResolver()
-            });
+            }));
+        }
+
+        /// <summary>
+        /// Searches the NPPES NPI directory by NPI number.
+        /// </summary>
+        /// <param name="npi"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static Task<NPPESResponse> SearchAsync(string npi, CancellationToken cancellationToken = default)
+        {
+            var request = new NPPESRequest
+            {
+                Number = npi
+            };
+
+            return SearchAsync(request, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -49,16 +69,29 @@ namespace Forcura.NPPES
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public static async Task<NPPESResponse> Search(NPPESRequest request, CancellationToken cancellationToken = default)
+        public static async Task<NPPESResponse> SearchAsync(NPPESRequest request, CancellationToken cancellationToken = default)
         {
+            var response = new NPPESResponse
+            {
+                ResultCount = 0,
+                Results = null,
+                Errors = null
+            };
+
             using (var responseMessage = await DefaultClient.GetAsync(request.ToQuery(), cancellationToken: cancellationToken).ConfigureAwait(false))
             {
+                // errors are returned with a 200 status code
+                // so this handles success and error.
                 if (responseMessage.IsSuccessStatusCode)
                     using (var stream = await responseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false))
-                        return StreamToType<NPPESResponse>(stream);
+                        response = StreamToType<NPPESResponse>(stream);
 
-                return null;
+                // any other exceptions, return the status code for 
+                // troubleshooting, all other fields will be null
+                response.StatusCode = responseMessage.StatusCode;
             }
+
+            return response;
         }
 
         private static T StreamToType<T>(Stream stream)
@@ -66,7 +99,7 @@ namespace Forcura.NPPES
             using (var streamReader = new StreamReader(stream, Encoding.UTF8, true, bufferSize, true))
             using (var jsonReader = new JsonTextReader(streamReader))
             {
-                return serializer.Deserialize<T>(jsonReader);
+                return Serializer.Deserialize<T>(jsonReader);
             }
         }
     }

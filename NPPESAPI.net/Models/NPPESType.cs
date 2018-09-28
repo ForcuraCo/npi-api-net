@@ -1,5 +1,8 @@
 ﻿namespace Forcura.NPPES.Models
 {
+    /// <summary>
+    /// The type of NPPES provider NPI.
+    /// </summary>
     public enum NPPESType
     {
         /// <summary>
