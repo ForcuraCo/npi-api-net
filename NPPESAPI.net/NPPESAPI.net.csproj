@@ -11,12 +11,16 @@
     <LangVersion>latest</LangVersion>
     <RepositoryUrl>https://github.com/ForcuraCo/npi-api-net</RepositoryUrl>
     <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <Authors>ghost1face,Forcura</Authors>
+    <Authors>ghost1face,Forcura,Reality Engineering</Authors>
     <Company>Forcura</Company>
     <Product>NPPES NPI API</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/ForcuraCo/npi-api-net</PackageProjectUrl>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.1.0</Version>
+    <PackageId>Forcura.NPPESAPI</PackageId>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net45' or $(TargetFramework) == 'net451'">

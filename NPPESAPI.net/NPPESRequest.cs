@@ -31,6 +31,14 @@ namespace Forcura.NPPES
         public string FirstName { get; set; }
 
         /// <summary>
+        /// This field only applies to Individual Providers when not doing a wildcard search. When set to "True", the search results will include Providers with similar First Names. E.g., first_name=Robert, will also return Providers with the first name of Rob, Bob, Robbie, Bobby, etc. Valid Values are:
+        ///     True: Will include alias/similar names.
+        ///     False: Will only look for exact matches.
+        /// Default Value is True
+        /// </summary>
+        public bool? UseFirstNameAlias { get; set; }
+
+        /// <summary>
         /// This field only applies to Individual Providers. Trailing wildcard entries are permitted requiring at least two characters to be entered. This field allows the following special characters: ampersand, apostrophe, colon, comma, forward slash, hyphen, left and right parentheses, period, pound sign, quotation mark, and semi-colon.
         /// </summary>
         public string LastName { get; set; }
@@ -82,6 +90,7 @@ namespace Forcura.NPPES
             AddStringParam(query, "number", Number);
             AddStringParam(query, "taxonomy_description", TaxonomyDescription);
             AddStringParam(query, "first_name", FirstName);
+            AddStringParam(query, "use_first_name_alias", UseFirstNameAlias?.ToString());
             AddStringParam(query, "last_name", LastName);
             AddStringParam(query, "organization_name", OrganizationName);
             AddStringParam(query, "address_purpose", AddressPurpose?.ToString()?.ToUpper());
