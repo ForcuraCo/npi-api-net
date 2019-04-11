@@ -11,7 +11,7 @@
     <LangVersion>latest</LangVersion>
     <RepositoryUrl>https://github.com/ForcuraCo/npi-api-net</RepositoryUrl>
     <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <Authors>ghost1face,Forcura,Reality Engineering</Authors>
+    <Authors>ghost1face,Forcura</Authors>
     <Company>Forcura</Company>
     <Product>NPPES NPI API</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
