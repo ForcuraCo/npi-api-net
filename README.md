@@ -34,7 +34,9 @@ var results = await NPPESApiClient.SearchAsync(new NPPESRequest
 
 ## License
 
-Apache 2.0 license
+Copyright 2019 Forcura
+
+Licensed under the [Apache 2.0](https://github.com/ForcuraCo/npi-api-net/blob/master/LICENSE) license
 
 ## Resources
 
