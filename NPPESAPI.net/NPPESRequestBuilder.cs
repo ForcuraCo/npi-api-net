@@ -18,6 +18,17 @@ namespace Forcura.NPPES
         }
 
         /// <summary>
+        /// Appends or updates the version to the request.
+        /// </summary>
+        /// <param name="version"></param>
+        /// <returns></returns>
+        public NPPESRequestBuilder Version(NPPESVersion version)
+        {
+            request.Version = version;
+            return this;
+        }
+
+        /// <summary>
         /// Appends or updates an NPI number to the request.
         /// </summary>
         /// <param name="number"></param>

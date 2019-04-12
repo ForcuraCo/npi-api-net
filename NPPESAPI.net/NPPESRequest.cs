@@ -11,6 +11,11 @@ namespace Forcura.NPPES
     public class NPPESRequest
     {
         /// <summary>
+        /// Identifies the version of the API to use.
+        /// </summary>
+        public NPPESVersion Version { get; set; } = NPPESVersion.v2_1;
+
+        /// <summary>
         /// The NPI Number is the unique 10-digit National Provider Identifier assigned to the provider.
         /// </summary>
         public string Number { get; set; }
@@ -86,6 +91,7 @@ namespace Forcura.NPPES
         internal string ToQuery()
         {
             var query = new Dictionary<string, string>();
+            AddStringParam(query, "version", Version.ToVersionString());
 
             AddStringParam(query, "number", Number);
             AddStringParam(query, "taxonomy_description", TaxonomyDescription);
