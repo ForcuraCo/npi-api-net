@@ -32,6 +32,19 @@ var results = await NPPESApiClient.SearchAsync(new NPPESRequest
 });
 ```
 
+Using the builder:
+```cs
+var builder = new NPPESRequestBuilder();
+var request = builder
+    .Version(NPPESVersion.v1_0)
+    .Number("1234567890")
+    .Build();
+
+var results = await NPPESApiClient.SearchAsync(request);
+```
+
+It is important to note that the NPPES API by default, accesses the latest public api version, as currently it is backward compatible, this is something to be aware of.
+
 ## License
 
 Copyright 2019 Forcura
