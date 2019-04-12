@@ -86,7 +86,7 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the useFirstNameAlias search parameter for the request.
         /// </summary>
-        /// <param name="useFristNameAlieas"></param>
+        /// <param name="useFirstNameAlias"></param>
         /// <returns></returns>
         public NPPESRequestBuilder UseFirstNameAlias(bool useFirstNameAlias)
         {

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Forcura.NPPES;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Net;
 using System.Threading.Tasks;
-using Forcura.NPPES;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NPPESAPITest
 {

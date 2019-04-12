@@ -21,6 +21,7 @@
     <AssemblyVersion>1.1.1.0</AssemblyVersion>
     <FileVersion>1.1.1.0</FileVersion>
     <Version>1.1.1</Version>
+    <PackageReleaseNotes>Support for NPPES API v2.1 and newer url versioning scheme</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net45' or $(TargetFramework) == 'net451'">
