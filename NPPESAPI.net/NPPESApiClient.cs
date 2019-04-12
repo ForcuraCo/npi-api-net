@@ -17,7 +17,7 @@ namespace Forcura.NPPES
     {
         private static readonly Lazy<HttpClient> defaultClient;
         private static readonly Lazy<JsonSerializer> serializer;
-        private const string BASE_ADDRESS_PATH = "https://npiregistry.cms.hhs.gov/api/resultsDemo2/";
+        private const string BASE_ADDRESS_PATH = "https://npiregistry.cms.hhs.gov/api/";
         private const int bufferSize = 8192;
 
         private static HttpClient DefaultClient => defaultClient.Value;

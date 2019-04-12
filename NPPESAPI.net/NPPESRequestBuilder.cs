@@ -18,6 +18,17 @@ namespace Forcura.NPPES
         }
 
         /// <summary>
+        /// Appends or updates the version to the request.
+        /// </summary>
+        /// <param name="version"></param>
+        /// <returns></returns>
+        public NPPESRequestBuilder Version(NPPESVersion version)
+        {
+            request.Version = version;
+            return this;
+        }
+
+        /// <summary>
         /// Appends or updates an NPI number to the request.
         /// </summary>
         /// <param name="number"></param>
@@ -69,6 +80,17 @@ namespace Forcura.NPPES
         public NPPESRequestBuilder FirstName(string firstName)
         {
             request.FirstName = firstName;
+            return this;
+        }
+
+        /// <summary>
+        /// Appends or updates the useFirstNameAlias search parameter for the request.
+        /// </summary>
+        /// <param name="useFristNameAlieas"></param>
+        /// <returns></returns>
+        public NPPESRequestBuilder UseFirstNameAlias(bool useFirstNameAlias)
+        {
+            request.UseFirstNameAlias = useFirstNameAlias;
             return this;
         }
 

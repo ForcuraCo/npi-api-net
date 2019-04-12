@@ -11,6 +11,11 @@ namespace Forcura.NPPES
     public class NPPESRequest
     {
         /// <summary>
+        /// Identifies the version of the API to use.
+        /// </summary>
+        public NPPESVersion Version { get; set; } = NPPESVersion.v2_1;
+
+        /// <summary>
         /// The NPI Number is the unique 10-digit National Provider Identifier assigned to the provider.
         /// </summary>
         public string Number { get; set; }
@@ -29,6 +34,14 @@ namespace Forcura.NPPES
         /// This field only applies to Individual Providers. Trailing wildcard entries are permitted requiring at least two characters to be entered (e.g. "jo*" ). This field allows the following special characters: ampersand, apostrophe, colon, comma, forward slash, hyphen, left and right parentheses, period, pound sign, quotation mark, and semi-colon.
         /// </summary>
         public string FirstName { get; set; }
+
+        /// <summary>
+        /// This field only applies to Individual Providers when not doing a wildcard search. When set to "True", the search results will include Providers with similar First Names. E.g., first_name=Robert, will also return Providers with the first name of Rob, Bob, Robbie, Bobby, etc. Valid Values are:
+        ///     True: Will include alias/similar names.
+        ///     False: Will only look for exact matches.
+        /// Default Value is True
+        /// </summary>
+        public bool? UseFirstNameAlias { get; set; }
 
         /// <summary>
         /// This field only applies to Individual Providers. Trailing wildcard entries are permitted requiring at least two characters to be entered. This field allows the following special characters: ampersand, apostrophe, colon, comma, forward slash, hyphen, left and right parentheses, period, pound sign, quotation mark, and semi-colon.
@@ -78,10 +91,12 @@ namespace Forcura.NPPES
         internal string ToQuery()
         {
             var query = new Dictionary<string, string>();
+            AddStringParam(query, "version", Version.ToVersionString());
 
             AddStringParam(query, "number", Number);
             AddStringParam(query, "taxonomy_description", TaxonomyDescription);
             AddStringParam(query, "first_name", FirstName);
+            AddStringParam(query, "use_first_name_alias", UseFirstNameAlias?.ToString());
             AddStringParam(query, "last_name", LastName);
             AddStringParam(query, "organization_name", OrganizationName);
             AddStringParam(query, "address_purpose", AddressPurpose?.ToString()?.ToUpper());
