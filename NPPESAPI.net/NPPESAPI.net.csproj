@@ -18,10 +18,10 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/ForcuraCo/npi-api-net</PackageProjectUrl>
     <PackageId>Forcura.NPPESAPI</PackageId>
-    <AssemblyVersion>1.1.1.0</AssemblyVersion>
-    <FileVersion>1.1.1.0</FileVersion>
-    <Version>1.1.1</Version>
-    <PackageReleaseNotes>Support for NPPES API v2.1 and newer url versioning scheme</PackageReleaseNotes>
+    <AssemblyVersion>1.1.2.0</AssemblyVersion>
+    <FileVersion>1.1.2.0</FileVersion>
+    <Version>1.1.2</Version>
+    <PackageReleaseNotes>Resolve security vulnerability in System.Net.Http</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net45' or $(TargetFramework) == 'net451'">
