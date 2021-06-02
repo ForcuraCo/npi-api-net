@@ -12,7 +12,8 @@ namespace NPPESAPITest
         {
             // arrange
             // act
-            var result = await NPPESApiClient.SearchAsync("1215226147");
+            var client = new NPPESApiClient();
+            var result = await client.SearchAsync("1215226147");
 
             // assert
             Assert.NotNull(result);
@@ -29,7 +30,8 @@ namespace NPPESAPITest
             var request = new NPPESRequest();
 
             // act
-            var result = await NPPESApiClient.SearchAsync(request);
+            var client = new NPPESApiClient();
+            var result = await client.SearchAsync(request);
 
             // assert
             Assert.NotNull(result);

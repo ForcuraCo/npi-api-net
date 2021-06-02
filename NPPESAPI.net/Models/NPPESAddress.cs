@@ -1,5 +1,8 @@
 ﻿namespace Forcura.NPPES.Models
 {
+    /// <summary>
+    /// The NPPES Address.
+    /// </summary>
     public class NPPESAddress
     {
         /// <summary>
