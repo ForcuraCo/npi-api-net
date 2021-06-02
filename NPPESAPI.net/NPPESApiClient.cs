@@ -83,8 +83,14 @@ namespace Forcura.NPPES
                 // errors are returned with a 200 status code
                 // so this handles success and error.
                 if (responseMessage.IsSuccessStatusCode)
+                {
+#if NET5_0
+                    using (var stream = await responseMessage.Content.ReadAsStreamAsync(cancellationToken: cancellationToken).ConfigureAwait(false))
+#else
                     using (var stream = await responseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false))
+#endif
                         response = StreamToType<NPPESResponse>(stream);
+                }
 
                 // any other exceptions, return the status code for 
                 // troubleshooting, all other fields will be null
