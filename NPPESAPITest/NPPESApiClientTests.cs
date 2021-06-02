@@ -1,14 +1,13 @@
-﻿using Forcura.NPPES;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Net;
+﻿using System.Net;
 using System.Threading.Tasks;
+using Forcura.NPPES;
+using Xunit;
 
 namespace NPPESAPITest
 {
-    [TestClass]
     public class NPPESApiClientTests
     {
-        [TestMethod]
+        [Fact]
         public async Task NPPESApiClient_ReturnsSingleResultByNPI()
         {
             // arrange
@@ -16,14 +15,14 @@ namespace NPPESAPITest
             var result = await NPPESApiClient.SearchAsync("1215226147");
 
             // assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(1, result.ResultCount);
-            Assert.AreEqual(1, result.Results.Count);
-            Assert.IsNull(result.Errors);
-            Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
+            Assert.NotNull(result);
+            Assert.Equal(1, result.ResultCount);
+            Assert.Equal(1, result.Results.Count);
+            Assert.Null(result.Errors);
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
         }
 
-        [TestMethod]
+        [Fact]
         public async Task NPPESApiClient_NoParametersReturnsError()
         {
             // arrange
@@ -33,11 +32,11 @@ namespace NPPESAPITest
             var result = await NPPESApiClient.SearchAsync(request);
 
             // assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(0, result.ResultCount);
-            Assert.IsNotNull(result.Errors);
-            Assert.AreEqual(1, result.Errors.Count);
-            Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
+            Assert.NotNull(result);
+            Assert.Equal(0, result.ResultCount);
+            Assert.NotNull(result.Errors);
+            Assert.Equal(1, result.Errors.Count);
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
         }
     }
 }

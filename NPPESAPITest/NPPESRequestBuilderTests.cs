@@ -1,15 +1,14 @@
-﻿using Forcura.NPPES;
-using Forcura.NPPES.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Linq;
+using Forcura.NPPES;
+using Forcura.NPPES.Models;
+using Xunit;
 
 namespace NPPESAPITest
 {
-    [TestClass]
     public class NPPESRequestBuilderTests
     {
-        [TestMethod]
+        [Fact]
         public void NPPESRequestBuilder_UpdatesValue()
         {
             // arrange
@@ -24,11 +23,11 @@ namespace NPPESAPITest
                 .Build();
 
             // assert
-            Assert.IsNotNull(request);
-            Assert.AreEqual(lastNumber, request.Number);
+            Assert.NotNull(request);
+            Assert.Equal(lastNumber, request.Number);
         }
 
-        [TestMethod]
+        [Fact]
         public void NPPESRequestBuilder_NoVersionUsesLatest()
         {
             var builder = new NPPESRequestBuilder();
@@ -36,17 +35,17 @@ namespace NPPESAPITest
             var request = builder.Build();
             var maxVersion = Enum.GetValues(typeof(NPPESVersion)).Cast<NPPESVersion>().Last();
 
-            Assert.AreEqual(maxVersion, request.Version);
+            Assert.Equal(maxVersion, request.Version);
         }
 
-        [TestMethod]
+        [Fact]
         public void NPPESRequestBuilder_VersionProvidedUsesSpecified()
         {
             var request = new NPPESRequestBuilder()
                 .Version(NPPESVersion.v1_0)
                 .Build();
 
-            Assert.AreEqual(NPPESVersion.v1_0, request.Version);
+            Assert.Equal(NPPESVersion.v1_0, request.Version);
         }
     }
 }
