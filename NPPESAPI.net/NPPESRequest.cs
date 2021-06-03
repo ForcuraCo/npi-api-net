@@ -117,7 +117,7 @@ namespace Forcura.NPPES
             return "?" + string.Join("&", query.Select(i => $"{i.Key}={WebUtility.UrlEncode(i.Value)}"));
         }
 
-        private void AddStringParam(IDictionary<string, string> parameters, string paramName, string value)
+        private static void AddStringParam(IDictionary<string, string> parameters, string paramName, string value)
         {
             if (!string.IsNullOrWhiteSpace(value))
                 parameters.Add(paramName, value);

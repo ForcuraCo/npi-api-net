@@ -4,7 +4,7 @@ using System;
 
 namespace Forcura.NPPES.Core
 {
-    class CustomDateTimeConverter : IsoDateTimeConverter
+    internal class CustomDateTimeConverter : IsoDateTimeConverter
     {
         private static readonly DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)

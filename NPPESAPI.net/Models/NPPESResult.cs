@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Forcura.NPPES.Models
 {
+    /// <summary>
+    /// A search result returned from the NPPES API.
+    /// </summary>
     public class NPPESResult
     {
         /// <summary>

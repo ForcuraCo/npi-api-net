@@ -5,7 +5,7 @@ using System;
 
 namespace Forcura.NPPES.Core
 {
-    class NPPESTypeConverter : JsonConverter
+    internal class NPPESTypeConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {

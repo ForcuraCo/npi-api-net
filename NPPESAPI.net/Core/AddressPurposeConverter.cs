@@ -5,7 +5,7 @@ using System;
 
 namespace Forcura.NPPES.Core
 {
-    class AddressPurposeConverter : JsonConverter
+    internal class AddressPurposeConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {

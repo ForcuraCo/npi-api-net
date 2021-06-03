@@ -2,6 +2,9 @@
 
 namespace Forcura.NPPES.Models
 {
+    /// <summary>
+    /// Basic information regarding the NPPES entry.
+    /// </summary>
     public class NPPESBasic
     {
         /// <summary>
