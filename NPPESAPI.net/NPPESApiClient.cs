@@ -88,11 +88,11 @@ namespace Forcura.NPPES
                 Errors = null
             };
 
-            using (var responseMessage = await httpClient.GetAsync(request.ToQuery(), cancellationToken: cancellationToken).ConfigureAwait(false))
+            using (var responseMessage = await httpClient.GetAsync(request.ToQuery(), HttpCompletionOption.ResponseHeadersRead, cancellationToken: cancellationToken).ConfigureAwait(false))
             {
                 // errors are returned with a 200 status code
                 // so this handles success and error.
-                if (responseMessage.IsSuccessStatusCode)
+                if (responseMessage.IsSuccessStatusCode && responseMessage.Content is object)
                 {
 #if NET5_0
                     using (var stream = await responseMessage.Content.ReadAsStreamAsync(cancellationToken: cancellationToken).ConfigureAwait(false))
