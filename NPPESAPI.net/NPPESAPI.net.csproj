@@ -19,10 +19,12 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/ForcuraCo/npi-api-net</PackageProjectUrl>
     <PackageId>Forcura.NPPESAPI</PackageId>
-    <AssemblyVersion>1.1.1.0</AssemblyVersion>
-    <FileVersion>1.1.1.0</FileVersion>
-    <Version>1.1.1</Version>
-    <PackageReleaseNotes>Support for NPPES API v2.1 and newer url versioning scheme</PackageReleaseNotes>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.0.0</Version>
+    <PackageReleaseNotes>
+      Supported framework changes: Support for net45 has been dropped.  Library uses `HttpClient` in a better fashion that supports injection from `IHttpClientFactory` 
+    </PackageReleaseNotes>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NeutralLanguage>en</NeutralLanguage>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
