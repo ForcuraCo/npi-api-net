@@ -33,7 +33,7 @@ namespace Forcura.NPPES
         /// <summary>
         /// Initializes a new instance of <see cref="NPPESApiClient"/> with the provided <see cref="HttpClient"/>.
         /// </summary>
-        /// <param name="client"></param>
+        /// <param name="client">The <see cref="HttpClient"/>.</param>
         public NPPESApiClient(HttpClient client)
         {
             client.BaseAddress = new Uri(BaseAddressPath);
@@ -60,8 +60,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Searches the NPPES NPI directory by NPI number.
         /// </summary>
-        /// <param name="npi"></param>
-        /// <param name="cancellationToken"></param>
+        /// <param name="npi">The npi number to search for.</param>
+        /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
         /// <returns></returns>
         public Task<NPPESResponse> SearchAsync(string npi, CancellationToken cancellationToken = default)
         {
