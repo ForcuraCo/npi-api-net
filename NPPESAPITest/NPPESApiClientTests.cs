@@ -1,6 +1,9 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
 using Forcura.NPPES;
+#if NETCOREAPP2_1_OR_GREATER
+using Microsoft.Extensions.DependencyInjection;
+#endif
 using Xunit;
 
 namespace NPPESAPITest
@@ -40,5 +43,21 @@ namespace NPPESAPITest
             Assert.Equal(1, result.Errors.Count);
             Assert.Equal(HttpStatusCode.OK, result.StatusCode);
         }
+
+#if NETCOREAPP2_1_OR_GREATER
+        [Fact]
+        public async Task NPPESApiClient_AcceptsHttpClient()
+        {
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddHttpClient<NPPESApiClient>();
+
+            using (var provider = serviceCollection.BuildServiceProvider())
+            {
+                var apiClient = provider.GetRequiredService<NPPESApiClient>();
+
+                var response = await apiClient.SearchAsync("abcdefghi", default);
+            }
+        }
+#endif
     }
 }

@@ -36,7 +36,9 @@ namespace Forcura.NPPES
         /// <param name="client">The <see cref="HttpClient"/>.</param>
         public NPPESApiClient(HttpClient client)
         {
-            client.BaseAddress = new Uri(BaseAddressPath);
+            httpClient = client;
+
+            httpClient.BaseAddress = new Uri(BaseAddressPath);
 
             serializer = JsonSerializer.Create(new JsonSerializerSettings
             {
@@ -53,8 +55,6 @@ namespace Forcura.NPPES
                 },
                 ContractResolver = new NPPESContractResolver()
             });
-
-            httpClient = client;
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace Forcura.NPPES
         /// </summary>
         /// <param name="npi">The npi number to search for.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
-        /// <returns></returns>
+        /// <returns>The Task object representing the asynchronous operation.</returns>
         public Task<NPPESResponse> SearchAsync(string npi, CancellationToken cancellationToken = default)
         {
             var request = new NPPESRequest
@@ -78,7 +78,7 @@ namespace Forcura.NPPES
         /// </summary>
         /// <param name="request">The request parameters.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
-        /// <returns></returns>
+        /// <returns>The Task object representing the asynchronous operation.</returns>
         public async Task<NPPESResponse> SearchAsync(NPPESRequest request, CancellationToken cancellationToken = default)
         {
             var response = new NPPESResponse
@@ -92,9 +92,9 @@ namespace Forcura.NPPES
             {
                 // errors are returned with a 200 status code
                 // so this handles success and error.
-                if (responseMessage.IsSuccessStatusCode && responseMessage.Content is object)
+                if (responseMessage.IsSuccessStatusCode && responseMessage.Content is not null)
                 {
-#if NET5_0
+#if NET5_0_OR_GREATER
                     using (var stream = await responseMessage.Content.ReadAsStreamAsync(cancellationToken: cancellationToken).ConfigureAwait(false))
 #else
                     using (var stream = await responseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false))

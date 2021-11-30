@@ -20,8 +20,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the version to the request.
         /// </summary>
-        /// <param name="version"></param>
-        /// <returns></returns>
+        /// <param name="version">The API version.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder Version(NPPESVersion version)
         {
             request.Version = version;
@@ -31,8 +31,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates an NPI number to the request.
         /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
+        /// <param name="number">The NPI number.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder Number(string number)
         {
             request.Number = number;
@@ -42,8 +42,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates an <see cref="NPPESType"/>.
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
+        /// <param name="type">The NPPES type.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder Type(NPPESType? type)
         {
             request.EnumerationType = type;
@@ -53,8 +53,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates a taxonomy description to the request.
         /// </summary>
-        /// <param name="description"></param>
-        /// <returns></returns>
+        /// <param name="description">The taxonomy description.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder TaxonomyDescription(string description)
         {
             request.TaxonomyDescription = description;
@@ -64,8 +64,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates an <see cref="Models.AddressPurpose"/>.
         /// </summary>
-        /// <param name="purpose"></param>
-        /// <returns></returns>
+        /// <param name="purpose">The address purpose.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder AddressPurpose(AddressPurpose? purpose)
         {
             request.AddressPurpose = purpose;
@@ -75,8 +75,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the firstName search parameter for the request.
         /// </summary>
-        /// <param name="firstName"></param>
-        /// <returns></returns>
+        /// <param name="firstName">The first name.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder FirstName(string firstName)
         {
             request.FirstName = firstName;
@@ -86,8 +86,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the useFirstNameAlias search parameter for the request.
         /// </summary>
-        /// <param name="useFirstNameAlias"></param>
-        /// <returns></returns>
+        /// <param name="useFirstNameAlias">Use first name alias.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder UseFirstNameAlias(bool useFirstNameAlias)
         {
             request.UseFirstNameAlias = useFirstNameAlias;
@@ -97,8 +97,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the lastName search parameter for the request.
         /// </summary>
-        /// <param name="lastName"></param>
-        /// <returns></returns>
+        /// <param name="lastName">The last name.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder LastName(string lastName)
         {
             request.LastName = lastName;
@@ -108,8 +108,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the organizationName search parameter for the request.
         /// </summary>
-        /// <param name="orgName"></param>
-        /// <returns></returns>
+        /// <param name="orgName">The organization name.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder OrganizationName(string orgName)
         {
             request.OrganizationName = orgName;
@@ -119,8 +119,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the city search parameter for the request.
         /// </summary>
-        /// <param name="city"></param>
-        /// <returns></returns>
+        /// <param name="city">The city.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder City(string city)
         {
             request.City = city;
@@ -130,8 +130,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the state search parameter for the request.
         /// </summary>
-        /// <param name="state"></param>
-        /// <returns></returns>
+        /// <param name="state">The state.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder State(string state)
         {
             request.State = state;
@@ -141,8 +141,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the postalCode parameter for the request.
         /// </summary>
-        /// <param name="postalCode"></param>
-        /// <returns></returns>
+        /// <param name="postalCode">The postal code.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder PostalCode(string postalCode)
         {
             request.PostalCode = postalCode;
@@ -152,8 +152,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the countryCode parameter for the request.
         /// </summary>
-        /// <param name="countryCode"></param>
-        /// <returns></returns>
+        /// <param name="countryCode">The country code.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder CountryCode(string countryCode)
         {
             request.CountryCode = countryCode;
@@ -163,8 +163,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the page size for the request. (default = 10, max = 200).
         /// </summary>
-        /// <param name="limit"></param>
-        /// <returns></returns>
+        /// <param name="limit">The maximum number of results to return.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder Limit(int limit)
         {
             request.Limit = limit;
@@ -174,8 +174,8 @@ namespace Forcura.NPPES
         /// <summary>
         /// Appends or updates the number of results to skip when paging. (max = 1000).
         /// </summary>
-        /// <param name="skip"></param>
-        /// <returns></returns>
+        /// <param name="skip">The number of results to skip.</param>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder Skip(int skip)
         {
             request.Skip = skip;
@@ -185,7 +185,7 @@ namespace Forcura.NPPES
         /// <summary>
         /// Clear the request parameters.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The <see cref="NPPESRequestBuilder"/>.</returns>
         public NPPESRequestBuilder Clear()
         {
             request = new NPPESRequest();
@@ -195,7 +195,7 @@ namespace Forcura.NPPES
         /// <summary>
         /// Build an instance of an NPPESRequest from the parameters provided to the builder.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The <see cref="NPPESRequest"/>.</returns>
         public NPPESRequest Build()
         {
             return request;
