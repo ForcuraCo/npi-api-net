@@ -43,11 +43,27 @@ var request = builder
 var results = await NPPESApiClient.SearchAsync(request);
 ```
 
+## Dependency Injection
+
+For netcore/net5+ you can register this with the `IServiceCollection` through the extension method:
+
+```cs
+using Forcura.NPPES.DependencyInjection;
+
+// simple approach
+IServiceCollection serviceCollection = ...;
+serviceCollection.AddNPPESApi();
+
+// for any customizations of the IHttpClientBuilder
+IServiceCollection serviceCollection = ...;
+serviceCollection.AddHttpClient<NPPESApiClient>();
+```
+
 It is important to note that the NPPES API by default, accesses the latest public api version, as currently it is backward compatible, this is something to be aware of.
 
 ## License
 
-Copyright 2019 Forcura
+Copyright 2022 Forcura
 
 Licensed under the [Apache 2.0](https://github.com/ForcuraCo/npi-api-net/blob/master/LICENSE) license
 
