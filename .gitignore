@@ -1,12 +1,28 @@
-bin
-obj
+# ignore build files
+[Bb]in/
+[Dd]ebug/
+[Oo]bj/
+[Rr]elease/
+
+# ignore user specific files
 *.user
 *.suo
+
+# misc
 *.nupkg
 *.orig
 *.dll
-Output
-TestResults
-packages
+
+# cache/configuration directories
 .vscode
 .vs
+
+# test results/ code coverage
+coverage.*.xml
+[Cc]overage-[Rr]eport/
+[Tt]est-[Rr]esults/
+[Tt]est[Rr]esults/
+packages
+
+# nuget configuration
+[Nn]u[Gg]et.config
