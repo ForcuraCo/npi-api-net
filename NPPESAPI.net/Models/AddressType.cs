@@ -1,5 +1,8 @@
 ﻿namespace Forcura.NPPES.Models
 {
+    /// <summary>
+    /// The type of address being described.
+    /// </summary>
     public enum AddressType
     {
         /// <summary>

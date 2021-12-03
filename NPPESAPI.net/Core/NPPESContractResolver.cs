@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace Forcura.NPPES.Core
 {
-    public class NPPESContractResolver : DefaultContractResolver
+    internal class NPPESContractResolver : DefaultContractResolver
     {
         protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
         {
@@ -18,7 +18,7 @@ namespace Forcura.NPPES.Core
             return property;
         }
 
-        private void ChangePropertyName(Type type, JsonProperty property)
+        private static void ChangePropertyName(Type type, JsonProperty property)
         {
             if (typePropertyLookup.TryGetValue(type, out Dictionary<string, string> propertyNameLookup) && propertyNameLookup.TryGetValue(property.PropertyName, out string newFieldName))
                 property.PropertyName = newFieldName;

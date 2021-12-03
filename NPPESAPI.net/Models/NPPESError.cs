@@ -1,5 +1,8 @@
 ﻿namespace Forcura.NPPES.Models
 {
+    /// <summary>
+    /// NPPES Error returned from the API.
+    /// </summary>
     public class NPPESError
     {
         /// <summary>
