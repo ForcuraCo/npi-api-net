@@ -12,7 +12,9 @@
     <PackageTags>NPPES NPI Healthcare .net</PackageTags>
     <LangVersion>latest</LangVersion>
     <RepositoryUrl>https://github.com/ForcuraCo/npi-api-net</RepositoryUrl>
-    <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>Forcura.png</PackageIcon>
     <Authors>ghost1face,Forcura</Authors>
     <Company>Forcura</Company>
     <Product>NPPES NPI API</Product>
@@ -23,7 +25,7 @@
     <FileVersion>2.0.0.0</FileVersion>
     <Version>2.0.0</Version>
     <PackageReleaseNotes>
-			Supported framework changes: Support for net45 has been dropped.  Library uses `HttpClient` in a better fashion that supports injection from `IHttpClientFactory`
+      Supported framework changes: Support for net45 has been dropped.  Library uses `HttpClient` in a better fashion that supports injection from `IHttpClientFactory`
     </PackageReleaseNotes>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NeutralLanguage>en</NeutralLanguage>
@@ -38,6 +40,21 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\Forcura.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
