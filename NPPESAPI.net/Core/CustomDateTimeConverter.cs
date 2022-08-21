@@ -13,7 +13,7 @@ namespace Forcura.NPPES.Core
                 return null;
 
             if (long.TryParse(reader.Value.ToString(), out long longValue))
-                return epoch.AddMilliseconds(longValue * 1000D);
+                return epoch.AddMilliseconds(longValue);
 
             return base.ReadJson(reader, objectType, existingValue, serializer);
         }

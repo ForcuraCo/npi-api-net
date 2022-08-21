@@ -30,7 +30,7 @@ namespace Forcura.NPPES.Core
                 typeof(NPPESResponse), new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
                     { nameof(NPPESResponse.Errors), "Errors" },
-                    { nameof(NPPESResponse.ResultCount), "result_count" },
+                    { nameof(NPPESResponse.ResultCount), "resultCount" },
                     { nameof(NPPESResponse.Results), "results" }
                 }
             },
