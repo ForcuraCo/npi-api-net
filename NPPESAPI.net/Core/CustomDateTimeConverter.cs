@@ -12,8 +12,22 @@ namespace Forcura.NPPES.Core
             if (reader.Value == null)
                 return null;
 
-            if (long.TryParse(reader.Value.ToString(), out long longValue))
-                return epoch.AddMilliseconds(longValue * 1000D);
+            var timeToParse = reader.Value.ToString();
+            if (long.TryParse(timeToParse, out long longValue))
+            {
+                // for backward compatibility, it looks like the NPPES folks
+                // found they were sending seconds and not milliseconds
+                // and finally corrected this.  Unfortunately this is breaking
+                // and due to the unplanned nature of their release and inappropriate versioning
+                // its probably best to check validating for seconds and/or milliseconds being
+                // returned here
+                if (timeToParse.Length <= 10)
+                {
+                    return epoch.AddMilliseconds(longValue * 1000D);
+                }
+
+                return epoch.AddMilliseconds(longValue);
+            }
 
             return base.ReadJson(reader, objectType, existingValue, serializer);
         }
