@@ -51,6 +51,7 @@ namespace Forcura.NPPES
                     new AddressPurposeConverter(),
                     new AddressTypeConverter(),
                     new NPPESTypeConverter(),
+                    new NPPESResponseConverter(),
                     new CustomDateTimeConverter()
                 },
                 ContractResolver = new NPPESContractResolver()

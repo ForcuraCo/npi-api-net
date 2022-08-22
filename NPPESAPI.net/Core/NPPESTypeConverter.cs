@@ -1,7 +1,7 @@
-﻿using Forcura.NPPES.Models;
+﻿using System;
+using Forcura.NPPES.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 
 namespace Forcura.NPPES.Core
 {
