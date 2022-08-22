@@ -21,11 +21,16 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/ForcuraCo/npi-api-net</PackageProjectUrl>
     <PackageId>Forcura.NPPESAPI</PackageId>
-    <AssemblyVersion>2.1.0.0</AssemblyVersion>
-    <FileVersion>2.1.0.0</FileVersion>
-    <Version>2.1.0</Version>
+    <AssemblyVersion>2.1.1.0</AssemblyVersion>
+    <FileVersion>2.1.1.0</FileVersion>
+    <Version>2.1.1</Version>
     <PackageReleaseNotes>
-      Upgrade Newtonsoft.Json dependency
+      Update to support the following Rest API breaking changes:
+      * `result_count` was renamed to `resultCount`
+      * Timestamps are now milliseconds from the epoch instead of seconds from the epoch
+
+      Other changes:
+      * Using version 1.0 and 2.0 requests will provide a deprecation warning
     </PackageReleaseNotes>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NeutralLanguage>en</NeutralLanguage>
