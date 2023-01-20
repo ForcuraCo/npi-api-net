@@ -42,10 +42,10 @@ namespace NPPESAPITest
         public void NPPESRequestBuilder_VersionProvidedUsesSpecified()
         {
             var request = new NPPESRequestBuilder()
-                .Version(NPPESVersion.v1_0)
+                .Version(NPPESVersion.v2_1)
                 .Build();
 
-            Assert.Equal(NPPESVersion.v1_0, request.Version);
+            Assert.Equal(NPPESVersion.v2_1, request.Version);
         }
     }
 }
