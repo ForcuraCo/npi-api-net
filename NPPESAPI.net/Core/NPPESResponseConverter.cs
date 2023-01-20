@@ -22,11 +22,7 @@ namespace Forcura.NPPES.Core
             //
             // We'll continue to review the stability of the NPPES NPI Rest API
             // and determine future direction of these changes
-#if NETSTANDARD2_0_OR_GREATER || NET5_0_OR_GREATER
             object instance = objectType.GetConstructor(Type.EmptyTypes).Invoke(null);
-#else
-            object instance = Activator.CreateInstance(objectType);
-#endif
 
             // create JObject for future parsing
             var jObject = JObject.Load(reader);
@@ -45,11 +41,7 @@ namespace Forcura.NPPES.Core
             }
 
             // now the fun part, check for either resultCount or result_count fields
-#if NETSTANDARD2_0_OR_GREATER || NET5_0_OR_GREATER
             PropertyInfo[] props = objectType.GetProperties();
-#else
-            PropertyInfo[] props = objectType.GetRuntimeProperties()?.ToArray();
-#endif
 
             foreach (var jp in jObject.Properties())
             {
