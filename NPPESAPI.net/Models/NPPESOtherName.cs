@@ -10,9 +10,9 @@
         /// </summary>
         public string OrganizationName { get; set; }
 
-/// <summary>
-/// The code.
-/// </summary>
+        /// <summary>
+        /// The code.
+        /// </summary>
         public string Code { get; set; }
 
         /// <summary>
