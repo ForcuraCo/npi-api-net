@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2043
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 17.0.31903.59
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPPESAPI.net", "NPPESAPI.net\NPPESAPI.net.csproj", "{70E67FB5-0C1C-4BFA-B813-395555B3A960}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPPESAPITest", "NPPESAPITest\NPPESAPITest.csproj", "{2BEC053C-47A3-4FF3-B37E-0DA356351E28}"
