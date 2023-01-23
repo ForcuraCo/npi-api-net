@@ -14,8 +14,9 @@ namespace NPPESAPITest
         public async Task NPPESApiClient_ReturnsSingleResultByNPI()
         {
             // arrange
-            // act
             var client = new NPPESApiClient();
+
+            // act
             var result = await client.SearchAsync("1215226147");
 
             // assert
