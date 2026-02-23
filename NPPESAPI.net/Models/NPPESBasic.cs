@@ -23,6 +23,11 @@ namespace Forcura.NPPES.Models
         public string OrganizationName { get; set; }
 
         /// <summary>
+        /// Parent Organization Legal Business Name
+        /// </summary>
+        public string ParentOrganizationLegalBusinessName { get; set; }
+
+        /// <summary>
         /// The registered individual's first name.
         /// </summary>
         public string FirstName { get; set; }
@@ -56,7 +61,12 @@ namespace Forcura.NPPES.Models
         /// The registered Individual's gender.
         /// </summary>
         public string Gender { get; set; }
-
+        
+        /// <summary>
+        /// The registered Individual's sex.
+        /// </summary>
+        public string Sex { get; set; }
+        
         /// <summary>
         /// The time the record was created.
         /// </summary>

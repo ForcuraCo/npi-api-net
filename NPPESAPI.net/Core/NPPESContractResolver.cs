@@ -80,12 +80,14 @@ namespace Forcura.NPPES.Core
                     { nameof(NPPESBasic.EnumerationDate), "enumeration_date" },
                     { nameof(NPPESBasic.FirstName), "first_name" },
                     { nameof(NPPESBasic.Gender), "gender" },
+                    { nameof(NPPESBasic.Sex), "sex" },
                     { nameof(NPPESBasic.LastName), "last_name" },
                     { nameof(NPPESBasic.LastUpdated), "last_updated" },
                     { nameof(NPPESBasic.MiddleName), "middle_name" },
                     { nameof(NPPESBasic.NamePrefix), "name_prefix" },
                     { nameof(NPPESBasic.NameSuffix), "name_suffix" },
                     { nameof(NPPESBasic.OrganizationName), "organization_name" },
+                    { nameof(NPPESBasic.ParentOrganizationLegalBusinessName), "parent_organization_legal_business_name" },
                     { nameof(NPPESBasic.ReplacementNPI), "replacement_npi" }
                 }
             },
